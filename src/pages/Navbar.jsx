@@ -9,7 +9,7 @@ const Navbar = () => {
     
     
     
-<div className='h-[5.3vw] w-[100%]  shadow-gray-400 shadow-md flex  justify-between'>
+<div className='h-[5.3vw] w-[100%] bg-[#282c34]  shadow-gray-400 shadow-md flex  justify-between'>
 
 
 
@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
 {/* For Nav Links */}
-<div className='w-[40%] h-[100%] flex justify-center items-center'>
+<div className='w-[40%] h-[100%] flex justify-center items-center  '>
 <ul className='flex justify-between items-center w-[100%]'>
 
 <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Home</li>
