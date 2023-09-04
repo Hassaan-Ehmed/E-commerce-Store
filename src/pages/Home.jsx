@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Products from './Products';
 
 const Home=()=>{
 
@@ -7,10 +8,8 @@ return(
 
 <>
 
-
 <Navbar/>
-
-<h1 style={{textAlign:"center"}}>Welocme to Home Page </h1>
+<Products/>
 
 </>
 
