@@ -15,8 +15,8 @@ export default function Products() {
         <h1 className='text-3xl drop-shadow-lg font-light text-[#E52F06] '>All Products</h1>
         </div>
         {/* Products Section  */}
-        {/* EEE EEE */}
-<div className='w-[100%] h-[90vw] p-6 bg-[#282c34] flex justify-center gap-[80px] flex-wrap '>
+    
+<div className='w-[100%] h-[90vw] p-6 bg-[#EEEEEE] flex justify-center gap-[80px] flex-wrap '>
 
 <Product productImg={led_image} productName={"Ecostar 32 Inch Led TV"} productPrice={750} />
 <Product productImg={shirt_image} productName={"Addidas Black T-Shirt-"} productPrice={199} />

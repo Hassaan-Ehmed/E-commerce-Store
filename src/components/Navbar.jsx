@@ -9,7 +9,7 @@ const Navbar = () => {
     
     
     
-<div className='h-[5.3vw] w-[100%] bg-[#282c34]  shadow-gray-400 shadow-md flex  justify-between'>
+<div className='h-[5.3vw] w-[100%]  shadow-gray-400 shadow-md flex  justify-between'>
 
 
 
