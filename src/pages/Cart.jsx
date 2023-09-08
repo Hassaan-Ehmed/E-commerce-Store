@@ -10,6 +10,7 @@ export default function Cart() {
     <>
     
     {/* For Main */}
+
     <div className='h-[100vh] w-[100%] bg-slate-400 flex flex-col justify-center items-center'>
 
 

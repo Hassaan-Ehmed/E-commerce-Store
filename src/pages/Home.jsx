@@ -8,10 +8,9 @@ import perfume_image from '../images/perfume2.jpg';
 export default function Products() {
 
 
-
-
   return (
     <>
+  
     <div  className='h-[100vh] w-[100%] '>
      
      
