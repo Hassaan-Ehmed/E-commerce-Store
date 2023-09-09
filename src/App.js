@@ -6,6 +6,7 @@ import Cart from './pages/Cart';
 import { ContextProvider } from './context/store';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import SignUp from './pages/Signup';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
   <Route path='/' element={<Home/>}/>
   <Route path='/Cart' element={<Cart/>}/>
   <Route  path='/SignUp' element={<SignUp/>}/>
+  <Route path='/Login' element={<Login/>}/>
 </Routes>
   
 
