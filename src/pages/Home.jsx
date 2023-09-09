@@ -4,13 +4,14 @@ import led_image from '../images/led.jpg';
 import shirt_image from '../images/shirt.jpg';
 import headphone_image from '../images/headphones.jpg';
 import perfume_image from '../images/perfume2.jpg';
+import Navbar from '../components/Navbar';
 
 export default function Products() {
 
 
   return (
     <>
-  
+  <Navbar/> 
     <div  className='h-[100vh] w-[100%] '>
      
      

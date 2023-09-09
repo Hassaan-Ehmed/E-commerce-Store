@@ -13,12 +13,12 @@ function App() {
 
 <Router>
  <ContextProvider>
-<Navbar/>  
+ 
 <Routes>
 
   <Route path='/' element={<Home/>}/>
   <Route path='/Cart' element={<Cart/>}/>
-  <Route  path='/SignUp' render={()=><SignUp/>}/>
+  <Route  path='/SignUp' element={<SignUp/>}/>
 </Routes>
   
 

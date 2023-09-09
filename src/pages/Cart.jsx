@@ -1,6 +1,7 @@
 import React from 'react';
 import { useProduct } from '../context/store';
 import CartItem from '../components/CartItem';
+import Navbar from '../components/Navbar';
 
 
 export default function Cart() {
@@ -10,7 +11,7 @@ export default function Cart() {
     <>
     
     {/* For Main */}
-
+    <Navbar/>
     <div className='h-[100vh] w-[100%] bg-slate-400 flex flex-col justify-center items-center'>
 
 
