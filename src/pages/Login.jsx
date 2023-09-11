@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom';
 export default function Login() {
   return (
    <>
@@ -21,7 +21,7 @@ export default function Login() {
 
 <tr className='mt-5 flex  justify-center gap-[58px]'><label className='text-xl'>Email</label><input type="text" name="email" id="email" className=' py-[5px] w-[20vw] text-xl ' /></tr>
 <tr className='mt-5 flex  justify-center gap-[24px]'><label className='text-xl'>Password</label><input type="password" name="password" id="password" className=' py-[5px] w-[20vw] text-xl ' /></tr>
-<tr className='mt-5  flex  justify-center gap-[38px] '><label className='w-[50px]'></label><button className='bg-[#E52F06] py-[10px] px-[20px] rounded-3xl text-white text-md shadow-[0px_9px_8px_-6px_#333333] active:shadow-none active:delay-75'>Log In</button></tr>
+<tr className='mt-5  flex  justify-center items-center gap-[38px] '><label ><span className='font-bold'>You Don't have an Account ?<Link to={'/SignUp'}>Sign Up</Link></span></label><button className='bg-[#E52F06] py-[10px] px-[20px] rounded-3xl text-white text-md shadow-[0px_9px_8px_-6px_#333333] active:shadow-none active:delay-75'>Log In</button></tr>
 
 
 </table>

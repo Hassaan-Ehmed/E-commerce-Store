@@ -13,7 +13,7 @@ export default function Products() {
     <>
   <Navbar/> 
     <div  className='h-[100vh] w-[100%] '>
-     
+      
      
      <div className='w-[100%] h-[10vh]  flex justify-center items-center'>
         <h1 className='text-3xl drop-shadow-lg font-light text-[#E52F06] '>All Products</h1>
@@ -26,7 +26,6 @@ export default function Products() {
 <Product productImg={shirt_image} productName={"Addidas Black T-Shirt-"} productPrice={199} />
 <Product productImg={headphone_image} productName={"Audionic Wireless Headset"} productPrice={480} />
 <Product productImg={perfume_image} productName={"Chennal Mint Perfume"} productPrice={379} />
-
 
 
 </div>

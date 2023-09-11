@@ -9,9 +9,6 @@ export default function Product({productImg,productName,productPrice}) {
     const navigate = useNavigate();
 
 
-    function functionNavigate(){
-        navigate("/SignUp")
-    }
 
     return (
     <>
@@ -39,7 +36,7 @@ export default function Product({productImg,productName,productPrice}) {
 
 onClick={()=>{
 
-if(store.userCheck==true){
+
 
     // Some Method   run on each element until the any element return true(match) or array length is completed 
 let exist_or_Not = store.productItems.some(item => item.productName == productName );
@@ -48,10 +45,6 @@ if(!exist_or_Not){
     store.setProductItems([...store.productItems,{productImg,productName,productPrice}]);
 }
 
-
-}else {
-    functionNavigate()
-    }
 
 }}
 

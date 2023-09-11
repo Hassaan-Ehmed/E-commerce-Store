@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 //store Setup </>
 export const ContextStore = createContext(null);
@@ -8,15 +8,33 @@ export const useProduct = () => {const store = useContext(ContextStore);
                                     return store;}
 
 export function  ContextProvider (props) {
+    let userCheck = false;
 
     const [productItems,setProductItems] = useState([]);
+    const [itemForCart,setItemForCart] = useState([]);
 
-    let userCheck = false;
+
+
+useEffect(()=>{
+        
+    localStorage.setItem("productItems",JSON.stringify(productItems));
+
+    let getData = localStorage.getItem("productItems");
+
+   let convertedData_to_Object = JSON.parse(getData);
+
+   setItemForCart(convertedData_to_Object);
+
+
+},[productItems]);
+
+
+
 
 return (
 <ContextStore.Provider
 
-value={{productItems,setProductItems,userCheck}}
+value={{productItems,setProductItems,userCheck,itemForCart}}
 
 >{props.children}</ContextStore.Provider>
 )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
 import { useProduct } from '../context/store';
@@ -30,38 +30,43 @@ const store = useProduct();
 
 <div className='w-[15%] h-[100%]   flex justify-center gap-[20px] items-center'>
 
-<button className='bg-slate-200 text-center px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'>–</button>
+<button className='bg-slate-200 text-center px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75' >–</button>
 
 <h1 className='text-lg font-semibold'>1</h1>
 
-<button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75' >+</button>
+<button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'  >+</button>
 </div>
 
 
 
 
-
-<div className='w-[18%] h-[100%]   flex justify-center items-center'>
+<div className='w-[18%] h-[100%] flex justify-center items-center'>
 
 <span><FontAwesomeIcon icon={faTrash} className='text-[22px] cursor-pointer text-red-600' 
 
 onClick={()=>{
 
 
-let result  = store.productItems.filter((element)=>{
+// let productItems = localStorage.getItem("productItems");
 
-    if(props.name==element.productName){
-        return false;
-    }
-    else{
-        return true;
-    }
+// let str_productItems = JSON.parse(productItems);
 
-})
+// let result  = str_productItems.filter((element)=>{
 
-store.setProductItems([...result]);
+//     if(props.name==element.productName){
 
- 
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
+
+// })
+
+// // store.setProductItems([...result]);
+// store.productItems(result);
+
+
 }}
 
 /></span>

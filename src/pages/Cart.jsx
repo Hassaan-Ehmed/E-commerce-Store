@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useProduct } from '../context/store';
 import CartItem from '../components/CartItem';
 import Navbar from '../components/Navbar';
@@ -7,6 +7,9 @@ import Navbar from '../components/Navbar';
 export default function Cart() {
 
   const store = useProduct()
+
+
+
   return (
     <>
     
@@ -44,7 +47,7 @@ export default function Cart() {
 {/* Wraapper on Cart products  */}
 <div className='w-[90%] h-[100%] bg-[#EEEEEE] flex flex-col items-center pt-10  overflow-x-hidden overflow-y-auto'>
 
-{store.productItems.map((item,index)=>(
+{store.itemForCart.map((item,index)=>(
 
 <CartItem indexNo={index} image={item.productImg} name={item.productName} price={item.productPrice}/>
 
