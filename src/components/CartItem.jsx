@@ -10,8 +10,6 @@ const store = useProduct();
 const [numberOfItems,setNumberOfItems] = useState(0);
 
 
-
-    
 let total  = store.productItems.reduce((prev,next)=>prev+next.productPrice,0);
 
 store.setTotal(total);

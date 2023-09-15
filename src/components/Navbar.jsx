@@ -1,23 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 import logo from  '../images/Wattpad-Logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass ,faRightFromBracket,faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import { useProduct } from '../context/store';
 
 
 const Navbar = () => {
 
+const store = useProduct();
+
+
+const [search,setSearch] = useState(false)
+
+  const[inputText,setInputText] = useState("");
 
 
 
-  let search = false;
+const _actionForText=(e)=>{
 
-  const _searchingOn=()=>{
+if(e.keyCode=="13")
+  store.setSearchText(inputText)
 
-search = true
-
-  }
-
+}
 
 
 const _navigate = useNavigate()
@@ -36,7 +41,7 @@ _navigate("/Login");
     
 
     
-<div className='h-[5.3vw] w-[100%] bg-white  shadow-gray-400 shadow-md flex  justify-between fixed top-0 '>
+<div className='h-[5.3vw] w-[100%] bg-white  shadow-[#dddd] shadow-sm flex  justify-between fixed top-0 '>
 
 
 
@@ -55,11 +60,24 @@ _navigate("/Login");
 <div className='w-[40%] h-[100%] flex justify-center items-center  '>
 
 {search ? (
+ 
+<input type="text" name="text" id="text" className=' shadow-md  shadow-slate-300 w-[300px] text-xl text-start border-2 border-[#333333] flex justify-start items-center '  placeholder='search your item...' onChange={(e)=>setInputText(e.target.value)} onKeyDown={(e)=>_actionForText(e)} />
 
-// <input type="text" name="text" id="text" />
-
-<h1>dsd</h1>
-):("d")}
+):(
+  <ul className='flex justify-between items-center w-[100%] bg-white'>
+  
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>
+    
+    <Link to={'/'}>Home</Link>
+    
+    </li>
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>About</li>
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Grocery</li>
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Cloths</li>
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Electronics</li>
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Contact Us</li>
+  
+  </ul>)}
 </div>
 
 
@@ -67,7 +85,8 @@ _navigate("/Login");
 {/* For Last Icons */}
 <div className='w-[20%] h-[100%] flex  justify-center items-center gap-5'>
 
-<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer' onClick={_searchingOn}/>
+<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer' onClick={()=>setSearch(!search)}/>
+
 <Link to={'/Cart'}><FontAwesomeIcon icon={faCartShopping} className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer' /></Link>
 <FontAwesomeIcon icon={faRightFromBracket} className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer'
 

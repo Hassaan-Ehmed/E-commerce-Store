@@ -57,12 +57,15 @@ localStorage.setItem("itemsForCart",JSON.stringify(productItems));
     
 
 
-    
+    // Search Functionality
+    const [searchText,setSearchText] = useState("");
+
+
 
 return (
 <ContextStore.Provider
 
-value={{productItems,setProductItems,dispatch,state,total,setTotal}}
+value={{productItems,setProductItems,dispatch,state,total,setTotal,setSearchText,searchText}}
 
 >{props.children}</ContextStore.Provider>
 )

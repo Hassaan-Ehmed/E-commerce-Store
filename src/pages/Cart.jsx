@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useProduct } from '../context/store';
 import CartItem from '../components/CartItem';
 import Navbar from '../components/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
+
 
 
 export default function Cart() {
@@ -10,12 +13,18 @@ export default function Cart() {
 
 
 
+
+if(store.productItems=="") {
+  
+store.setTotal(0);
+}
+
   return (
     <>
     
     {/* For Main */}
     <Navbar/>
-    <div className='h-[100vh] w-[100%] bg-slate-400 flex flex-col justify-center items-center mt-10'>
+    <div className='h-[100vh] w-[100%] bg-[#ffffff] flex flex-col justify-center items-center mt-10'>
 
 
 <div className='w-[100%] h-[7vw]  flex flex-col justify-between items-center'>
@@ -47,15 +56,34 @@ export default function Cart() {
 {/* Wraapper on Cart products  */}
 <div className='w-[90%] h-[100%] bg-[#EEEEEE] flex flex-col items-center pt-10  overflow-x-hidden overflow-y-auto'>
 
+{store.productItems==""?"":(
+
 <div className='totalBox h-8 w-[86%] bg-[white] text-center' >
 
   <h1 className='text-xl font-semibold'>Total Amount: ${store.total}.0</h1>
 </div>
-{store.productItems.map((item,index)=>(
+)}
+
+{store.productItems == "" ? (
+<div className='h-[70vh] w-[90%]  flex flex-col justify-center items-between gap-3'>
+
+<div className="title w-[100%] h-[30%]  flex justify-center items-center" ><h1 className='text-[45px] text-[#333333]'>Your Cart is Empty</h1></div>
+
+
+<div className="Icon  w-[100%] h-[30%] flex justify-center items-center"><h1><FontAwesomeIcon icon={faCartShopping} className='text-[8.1vw] text-[#E52F06] cursor-pointer' /></h1></div>
+
+
+</div>
+) :   store.productItems.map((item,index)=>(
 
 <CartItem indexNo={index} image={item.productImg} name={item.productName} price={item.productPrice}/>
 
 ))}
+
+
+
+
+
 </div>
 
 
