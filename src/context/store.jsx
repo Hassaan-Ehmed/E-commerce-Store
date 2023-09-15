@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { createContext, useContext , useEffect, useReducer, useState } from "react";
 
 //store Setup </>
 export const ContextStore = createContext(null);
@@ -8,33 +8,58 @@ export const useProduct = () => {const store = useContext(ContextStore);
                                     return store;}
 
 export function  ContextProvider (props) {
-    let userCheck = false;
-
-    const [productItems,setProductItems] = useState([]);
-    const [itemForCart,setItemForCart] = useState([]);
 
 
 
-useEffect(()=>{
-        
-    localStorage.setItem("productItems",JSON.stringify(productItems));
+    const [state,dispatch] = useReducer(reducer,0);
 
-    let getData = localStorage.getItem("productItems");
+    function reducer(state,action){
+    
+      switch(action.type){
+    
+        case "Add":
+        return state += action.amount ;
+        break;
+    
+        case "Sub":
+        return state-=action.amount
+    
+    
+      }
+    }
+    
+// time of initialization function will invoke and 
+// retrieve items from local convert it and assign it to productItems(state varible);
 
-   let convertedData_to_Object = JSON.parse(getData);
+    const [productItems,setProductItems] = useState(getLocalStorage);
+ 
 
-   setItemForCart(convertedData_to_Object);
+    // When product is set useEffect run because of dependency and set current 
+    // array into Local Storage  
+    
+    useEffect(()=>{
 
+localStorage.setItem("itemsForCart",JSON.stringify(productItems));
 
-},[productItems]);
+    },[productItems])
 
+     
+  function getLocalStorage(){
 
+    let data = JSON.parse(localStorage.getItem("itemsForCart"));
+  
+      if(data){return data;}
+      else{
+          return []; }
+  
+    }
+    
 
 
 return (
 <ContextStore.Provider
 
-value={{productItems,setProductItems,userCheck,itemForCart}}
+value={{productItems,setProductItems,dispatch,state}}
 
 >{props.children}</ContextStore.Provider>
 )

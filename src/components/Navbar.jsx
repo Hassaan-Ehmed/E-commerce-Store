@@ -3,12 +3,13 @@ import {Link} from 'react-router-dom';
 import logo from  '../images/Wattpad-Logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass ,faHeart,faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import Logout from './Logout';
 
 const Navbar = () => {
   return (
     <>
     
-    
+    <Logout/>
     
 <div className='h-[5.3vw] w-[100%]  shadow-gray-400 shadow-md flex  justify-between'>
 

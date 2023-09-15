@@ -1,15 +1,16 @@
 import React  from 'react'
 import { useProduct } from '../context/store'
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export default function Product({productImg,productName,productPrice}) {
+
+    
     const store = useProduct();
+
     console.log(store.productItems)
 
-    const navigate = useNavigate();
 
-
-
+   const _navigate = useNavigate();
     return (
     <>
     
@@ -41,10 +42,10 @@ onClick={()=>{
     // Some Method   run on each element until the any element return true(match) or array length is completed 
 let exist_or_Not = store.productItems.some(item => item.productName == productName );
 
-if(!exist_or_Not){
-    store.setProductItems([...store.productItems,{productImg,productName,productPrice}]);
-}
 
+    if(!exist_or_Not){
+        store.setProductItems([...store.productItems,{productImg,productName,productPrice}]);
+    }
 
 }}
 

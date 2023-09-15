@@ -9,7 +9,6 @@ export default function Cart() {
   const store = useProduct()
 
 
-
   return (
     <>
     
@@ -41,13 +40,17 @@ export default function Cart() {
 </div>
 
 
-<div className='h-[89%] w-[97%]  flex justify-center'>
+<div className='h-[89%] w-[97%]  flex  justify-center '>
 
 
 {/* Wraapper on Cart products  */}
 <div className='w-[90%] h-[100%] bg-[#EEEEEE] flex flex-col items-center pt-10  overflow-x-hidden overflow-y-auto'>
 
-{store.itemForCart.map((item,index)=>(
+<div className='totalBox h-8 w-[86%] bg-[white] text-center' >
+
+  <h1 className='text-xl font-semibold'>Total Amount: ${store.state}.0</h1>
+</div>
+{store.productItems.map((item,index)=>(
 
 <CartItem indexNo={index} image={item.productImg} name={item.productName} price={item.productPrice}/>
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useReducer, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
 import { useProduct } from '../context/store';
@@ -7,11 +7,16 @@ export default function CartItem(props) {
 
 const store = useProduct();
 
-  return (
+const [state,setState] = useState(0);
+  
+
+
+return (
+
     <>
     
     
-    <div className='w-[90%] h-[130px]  flex  bg-white  shadow-lg justify-start items-center mt-5 ' key={props.indexNo}>
+<div className='w-[90%] h-[130px]  flex  bg-white  shadow-lg justify-start items-center mt-5 ' key={props.indexNo}>
 
 <div className='w-[19%] h-[100%]   flex justify-center items-center'>
     <img src={props.image} alt="" className='w-[75%] h-[80%]'/>
@@ -30,14 +35,20 @@ const store = useProduct();
 
 <div className='w-[15%] h-[100%]   flex justify-center gap-[20px] items-center'>
 
-<button className='bg-slate-200 text-center px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75' >–</button>
+<button className='bg-slate-200 text-center px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75' 
 
-<h1 className='text-lg font-semibold'>1</h1>
+onClick={()=>{store.dispatch({type:"Sub",amount:props.price})}}
 
-<button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'  >+</button>
+>–</button>
+
+<h1 className='text-lg font-semibold'>{state}</h1>
+
+<button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'
+
+onClick={()=>{store.dispatch({type:"Add",amount:props.price})}}
+
+>+</button>
 </div>
-
-
 
 
 <div className='w-[18%] h-[100%] flex justify-center items-center'>
@@ -47,24 +58,20 @@ const store = useProduct();
 onClick={()=>{
 
 
-// let productItems = localStorage.getItem("productItems");
+let result  = store.productItems.filter((element)=>{
 
-// let str_productItems = JSON.parse(productItems);
+    if(props.name==element.productName){
 
-// let result  = str_productItems.filter((element)=>{
+        return false;
+    }
+    else{
+        return true;
+    }
 
-//     if(props.name==element.productName){
+})
 
-//         return false;
-//     }
-//     else{
-//         return true;
-//     }
+store.setProductItems([...result]);
 
-// })
-
-// // store.setProductItems([...result]);
-// store.productItems(result);
 
 
 }}
@@ -76,7 +83,7 @@ onClick={()=>{
 <div className='w-[14%] h-[100%]   flex justify-center items-center'>
 
 
-<h1 className='text-lg font-semibold'>Item Total: 1</h1>
+<h1 className='text-lg font-semibold'>Item Total: {state}</h1>
 </div>
 
 
