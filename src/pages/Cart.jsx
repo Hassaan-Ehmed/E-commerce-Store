@@ -9,12 +9,13 @@ export default function Cart() {
   const store = useProduct()
 
 
+
   return (
     <>
     
     {/* For Main */}
     <Navbar/>
-    <div className='h-[100vh] w-[100%] bg-slate-400 flex flex-col justify-center items-center'>
+    <div className='h-[100vh] w-[100%] bg-slate-400 flex flex-col justify-center items-center mt-10'>
 
 
 <div className='w-[100%] h-[7vw]  flex flex-col justify-between items-center'>
@@ -48,7 +49,7 @@ export default function Cart() {
 
 <div className='totalBox h-8 w-[86%] bg-[white] text-center' >
 
-  <h1 className='text-xl font-semibold'>Total Amount: ${store.state}.0</h1>
+  <h1 className='text-xl font-semibold'>Total Amount: ${store.total}.0</h1>
 </div>
 {store.productItems.map((item,index)=>(
 

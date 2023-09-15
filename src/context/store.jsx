@@ -5,11 +5,12 @@ export const ContextStore = createContext(null);
 
 // I made a Custom Hook that return our Setup and full store access
 export const useProduct = () => {const store = useContext(ContextStore);
-                                    return store;}
-
-export function  ContextProvider (props) {
-
-
+  return store;}
+  
+  export function  ContextProvider (props) {
+    
+    
+    let [total,setTotal] = useState(0);
 
     const [state,dispatch] = useReducer(reducer,0);
 
@@ -56,10 +57,12 @@ localStorage.setItem("itemsForCart",JSON.stringify(productItems));
     
 
 
+    
+
 return (
 <ContextStore.Provider
 
-value={{productItems,setProductItems,dispatch,state}}
+value={{productItems,setProductItems,dispatch,state,total,setTotal}}
 
 >{props.children}</ContextStore.Provider>
 )

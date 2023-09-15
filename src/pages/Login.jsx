@@ -3,7 +3,9 @@ import {Link, json, useNavigate} from 'react-router-dom';
 export default function Login() {
 
   
-  const [name,setName] = useState("");
+  const [name,setName] = useState(()=>{
+    JSON.parse(localStorage.getItem("userName"));
+  });
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   

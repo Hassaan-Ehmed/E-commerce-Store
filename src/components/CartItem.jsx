@@ -7,8 +7,25 @@ export default function CartItem(props) {
 
 const store = useProduct();
 
-const [state,setState] = useState(0);
-  
+const [numberOfItems,setNumberOfItems] = useState(0);
+
+
+
+    
+let total  = store.productItems.reduce((prev,next)=>prev+next.productPrice,0);
+
+store.setTotal(total);
+
+
+const _add=()=>{
+    
+    setNumberOfItems( numberOfItems + 1 );
+
+    let inc = store.total + props.price
+    store.setTotal(inc);
+
+}
+
 
 
 return (
@@ -36,16 +53,13 @@ return (
 <div className='w-[15%] h-[100%]   flex justify-center gap-[20px] items-center'>
 
 <button className='bg-slate-200 text-center px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75' 
-
-onClick={()=>{store.dispatch({type:"Sub",amount:props.price})}}
-
 >–</button>
 
-<h1 className='text-lg font-semibold'>{state}</h1>
+<h1 className='text-lg font-semibold'>{numberOfItems}</h1>
 
 <button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'
 
-onClick={()=>{store.dispatch({type:"Add",amount:props.price})}}
+onClick={_add}
 
 >+</button>
 </div>
@@ -70,8 +84,9 @@ let result  = store.productItems.filter((element)=>{
 
 })
 
-store.setProductItems([...result]);
 
+
+store.setProductItems([...result]);
 
 
 }}
@@ -83,7 +98,7 @@ store.setProductItems([...result]);
 <div className='w-[14%] h-[100%]   flex justify-center items-center'>
 
 
-<h1 className='text-lg font-semibold'>Item Total: {state}</h1>
+<h1 className='text-lg font-semibold'>Item Total: {numberOfItems}</h1>
 </div>
 
 
