@@ -3,6 +3,7 @@ import Product from '../components/Product'
 import Navbar from '../components/Navbar';
 import {productContent} from '../content/ProductContent'
 import { useProduct } from '../context/store';
+import Footer from '../components/Footer';
 
 export default function Products() {
 
@@ -35,7 +36,8 @@ setSearchItems(filterdItems);
   return (
     <>
   <Navbar/> 
-    <div  className='h-[100vh] w-[100%] mt-[70px]'>
+ 
+    <div  className='h-auto w-[100%] mt-[70px] '>
       
      
      <div className='w-[100%] h-[10vh]  flex justify-center items-center'>
@@ -43,7 +45,7 @@ setSearchItems(filterdItems);
         </div>
         {/* Products Section  */}
     
-<div className='w-[100%] h-[1300px] p-6 bg-[#EEEEEE] flex justify-center gap-[80px] flex-wrap '>
+<div className='w-[100%] h-[100vw] p-6 bg-[#EEEEEE] flex justify-center gap-[80px] flex-wrap '>
 
 {searchItems.map((item)=>(
 
@@ -54,6 +56,8 @@ setSearchItems(filterdItems);
 
 </div>
     </div>
+<Footer/>
+
     </>
   )
 }

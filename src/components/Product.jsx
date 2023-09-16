@@ -17,7 +17,7 @@ export default function Product({productImg,productName,productPrice}) {
     
 
 {/* Box */}
-<div className='h-[350px] w-[240px] bg-white shadow-md flex flex-col justify-center items-center '>
+<div className='h-[350px] w-[240px] bg-white shadow-md flex flex-col justify-center items-center  '>
 
 
 <div className=' w-[100%]  flex justify-center'>

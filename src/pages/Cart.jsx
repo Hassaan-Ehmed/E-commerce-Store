@@ -4,6 +4,7 @@ import CartItem from '../components/CartItem';
 import Navbar from '../components/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import Footer from '../components/Footer';
 
 
 
@@ -70,7 +71,7 @@ store.setTotal(0);
 <div className="title w-[100%] h-[30%]  flex justify-center items-center" ><h1 className='text-[45px] text-[#333333]'>Your Cart is Empty</h1></div>
 
 
-<div className="Icon  w-[100%] h-[30%] flex justify-center items-center"><h1><FontAwesomeIcon icon={faCartShopping} className='text-[8.1vw] text-[#E52F06] cursor-pointer' /></h1></div>
+<div className="Icon  w-[100%] h-[30%] flex justify-center items-center"><h1><FontAwesomeIcon icon={faCartShopping} className='text-[8.1vw] text-[#E52F06]  ' /></h1></div>
 
 
 </div>
@@ -94,7 +95,7 @@ store.setTotal(0);
 
 
     </div>
-    
+    <Footer/>
     
     </>
   )

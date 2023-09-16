@@ -22,6 +22,7 @@ const _actionForText=(e)=>{
 if(e.keyCode=="13")
   store.setSearchText(inputText)
 
+
 }
 
 
@@ -41,7 +42,7 @@ _navigate("/Login");
     
 
     
-<div className='h-[5.3vw] w-[100%] bg-white  shadow-[#dddd] shadow-sm flex  justify-between fixed top-0 '>
+<div className='h-[5.3vw] w-[100%] bg-white  shadow-[#dddd] shadow-sm flex  justify-between  fixed top-0 '>
 
 
 
@@ -85,10 +86,20 @@ _navigate("/Login");
 {/* For Last Icons */}
 <div className='w-[20%] h-[100%] flex  justify-center items-center gap-5'>
 
-<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer' onClick={()=>setSearch(!search)}/>
+<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2vw] hover:text-[#E52F06] cursor-pointer' onClick={()=>{setSearch(!search);store.setSearchText("")}}/>
 
-<Link to={'/Cart'}><FontAwesomeIcon icon={faCartShopping} className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer' /></Link>
-<FontAwesomeIcon icon={faRightFromBracket} className='text-[2.1vw] hover:text-[#E52F06] cursor-pointer'
+<Link to={'/Cart'}>
+
+<div className='flex flex-col justify-between items-center w-[33px]'>
+
+<div className='rounded-full bg-[#E52F06] w-[23px] h-[22px] flex justify-center items-center text-white ml-[15px]'>{store.productItems.length  }</div>
+< FontAwesomeIcon icon={faCartShopping} className='text-[2vw] hover:text-[#E52F06] cursor-pointer mb-3' />
+</div>
+
+</Link>
+
+
+<FontAwesomeIcon icon={faRightFromBracket} className='text-[2vw] hover:text-[#E52F06] cursor-pointer'
 
 onClick={_logout}
 />
