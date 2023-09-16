@@ -55,7 +55,7 @@ store.setTotal(0);
 
 
 {/* Wraapper on Cart products  */}
-<div className='w-[90%] h-[100%] bg-[#EEEEEE] flex flex-col items-center pt-10  overflow-x-hidden overflow-y-auto'>
+<div className='w-[90%] h-[100%] bg-[#EEEEEE] flex flex-col items-center pt-10  overflow-x-hidden overflow-y-auto border-b-[#333333] '>
 
 {store.productItems==""?"":(
 

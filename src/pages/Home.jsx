@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import {productContent} from '../content/ProductContent'
 import { useProduct } from '../context/store';
 import Footer from '../components/Footer';
+import Hero from '../components/Hero';
 
 export default function Products() {
 
@@ -36,8 +37,8 @@ setSearchItems(filterdItems);
   return (
     <>
   <Navbar/> 
- 
-    <div  className='h-auto w-[100%] mt-[70px] '>
+  <Hero/>
+    <div  className='h-auto w-[100%] mt-[2px] '>
       
      
      <div className='w-[100%] h-[10vh]  flex justify-center items-center'>

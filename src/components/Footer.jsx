@@ -5,10 +5,11 @@ import appstore_img  from '../images/appstore.png'
 import payment_method  from '../images/payment-method2.png'
 
 export default function Footer() {
+
   return (
     <>
     
-    
+
     <div className='Main-Footer h-[30vw] shadow-lg shadow-black  flex flex-col justify-between pt-3 mt-8 relative'>
 
 
