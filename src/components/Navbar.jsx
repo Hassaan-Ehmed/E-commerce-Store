@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom';
-import logo from  '../images/Wattpad-Logo.png'
+import logo from  '../images/Cart-Shop-Logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass ,faRightFromBracket,faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { useProduct } from '../context/store';
@@ -49,7 +49,7 @@ _navigate("/Login");
 {/* For Title & Logo */}
 <div className='w-[20%] h-[100%] flex justify-center items-center'>
 
-<img src={logo} alt="" className='h-[4vw]'/>
+<img src={logo} alt="" className='h-[5.5vw]'/>
 
 <h1 className='font-medium text-[2vw]' >Super Store</h1>
 

@@ -50,7 +50,7 @@ setSearchItems(filterdItems);
 
 {searchItems.map((item)=>(
 
-<Product productImg={item.productImage} productName={item.productName} productPrice={item.productPrice}/>
+<Product quantity={1} productImg={item.productImage} productName={item.productName} productPrice={item.productPrice}/>
 
 ))}
 

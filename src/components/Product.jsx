@@ -2,7 +2,7 @@ import React  from 'react'
 import { useProduct } from '../context/store'
 import {useNavigate} from 'react-router-dom';
 
-export default function Product({productImg,productName,productPrice}) {
+export default function Product({productImg,productName,productPrice,quantity}) {
 
     
     const store = useProduct();
@@ -44,7 +44,7 @@ let exist_or_Not = store.productItems.some(item => item.productName == productNa
 
 
     if(!exist_or_Not){
-        store.setProductItems([...store.productItems,{productImg,productName,productPrice}]);
+        store.setProductItems([...store.productItems,{productImg,productName,productPrice,quantity}]);
     }
 
 }}

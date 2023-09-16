@@ -77,7 +77,7 @@ store.setTotal(0);
 </div>
 ) :   store.productItems.map((item,index)=>(
 
-<CartItem indexNo={index} image={item.productImg} name={item.productName} price={item.productPrice}/>
+<CartItem indexNo={index} image={item.productImg} name={item.productName} price={item.productPrice} quantity={item.quantity}/>
 
 ))}
 
