@@ -10,14 +10,29 @@ const store = useProduct();
 console.log(props.quantity)
 
 
-const _add=(index)=>{
-
-    store.setQuantity(store.quantity + 1);
+const _add=()=>{
     
+
+    store.setQuantity(store.quantity+1);
+
+store.productItems.map((item)=>{
+
+    if(item.productName == props.name){
+
+        store.setProductItems({...item , quantity:item.quantity * 2 } );
+return  
+        
+    }
+
+
+   })
+   
+
+
 }
 
 
-let total  = store.productItems.reduce((a,b,index)=> a + b.productPrice * store.quantity ,0);
+let total  = store.productItems.reduce((a,b)=> a + b.productPrice * store.quantity ,0);
 
 store.setTotal(total);
 
@@ -52,7 +67,7 @@ return (
 
 <button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'
 
-onClick={()=>{_add(props.indexNo)}}
+onClick={()=>{_add(props.productName)}}
 >+</button>
 </div>
 

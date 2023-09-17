@@ -36,8 +36,10 @@ setSearchItems(filterdItems);
 
   return (
     <>
+
   <Navbar/> 
   <Hero/>
+
     <div  className='h-auto w-[100%] mt-[2px] '>
       
      

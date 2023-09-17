@@ -30,7 +30,7 @@ const _navigate = useNavigate()
 
 const _logout=()=>{
 
-localStorage.removeItem("userName");
+localStorage.removeItem("Token");
 
 _navigate("/Login");
 
