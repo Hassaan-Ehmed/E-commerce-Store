@@ -17,7 +17,7 @@ export default function Product({productImg,productName,productPrice,quantity}) 
     
 
 {/* Box */}
-<div className='h-[350px] w-[240px] bg-white shadow-md flex flex-col justify-center items-center  '>
+<div className='h-[350px] w-[240px] bg-white shadow-2xl shadow-black-500/20 flex flex-col justify-center items-center  '>
 
 
 <div className=' w-[100%]  flex justify-center'>
@@ -33,7 +33,7 @@ export default function Product({productImg,productName,productPrice,quantity}) 
 
 {/* For Buttons */}
 <div className=' h-[50px] w-[100%] mt-[30px] flex justify-around'>
-<button className='bg-[#333333] px-[16px] rounded-3xl text-white shadow-[0px_9px_8px_-6px_#333333] active:shadow-none active:delay-75'
+<button className='bg-[#333333] px-[16px] rounded-3xl text-white shadow-[0px_9px_8px_-6px_#333333] active:shadow-none active:delay-75 active:translate-y-[2px] transition-all'
 
 onClick={()=>{
 
@@ -50,7 +50,7 @@ let exist_or_Not = store.productItems.some(item => item.productName == productNa
 }}
 
 >Add To Cart</button>
-<button className='bg-[#E52F06] px-[16px] rounded-3xl text-white shadow-[0px_9px_8px_-6px_#E52F06] active:shadow-none active:delay-75'>Buy Now</button>
+<button className='bg-[#E52F06] px-[16px] rounded-3xl text-white shadow-[0px_9px_8px_-6px_#E52F06] active:shadow-none active:delay-75 active:translate-y-[2px]  transition-all '>Buy Now</button>
 </div>
 
 </div>

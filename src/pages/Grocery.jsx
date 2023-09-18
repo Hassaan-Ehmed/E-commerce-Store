@@ -5,18 +5,46 @@ import {productContent} from '../content/ProductContent'
 import { useProduct } from '../context/store';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
-import Hero_Img from '../images/hero2.png'
-
-export default function Products() {
-
-const [searchItems,setSearchItems] = useState([productContent]);
-
-const store = useProduct(); 
+import Grocery_Img from '../images/grocery-hero.png'
 
 
+export default function Grocery() {
+
+    const [searchItems,setSearchItems] = useState([productContent]);
+
+    const store = useProduct(); 
+
+// Shuffle Array in Random Order with Knuth Algorithm 
+/*
+1. reverse itrate
+2. random number genrate 
+3. shuffle current index with random number
+*/
+
+
+function ShuffleArr (array){
+
+
+for(let i=array.length - 1 ; i > 0; i--){
+
+    let random = Math.floor(  ( Math.random() * (i + 1) )  );
+
+   let current_i =  array[i];
+   array[i]=  array[random];
+   array[random] = current_i
+
+
+return array;
+
+}
+}
+
+let GroceryContent = ShuffleArr(productContent)
+
+console.log(productContent)
 
 useEffect(()=>{
- const filterdItems  = productContent.filter((item)=>{
+ const filterdItems  = GroceryContent.filter((item)=>{
 
 if(store.searchText==""){
 
@@ -35,17 +63,21 @@ setSearchItems(filterdItems);
 
 },[store.searchText])
 
+
+
+
+
   return (
     <>
 
   <Navbar/> 
-  <Hero saleText="SALE UPTO 50% OFF" title="Grocery & Electronics" img={Hero_Img} h={"150%"} w={"85%"}/>
+  <Hero saleText={"SALE UPTO 56% OFF"} title={"Grocery and other..."} img={Grocery_Img} h={"200٪"} w={"60%"}/>
 
     <div  className='h-auto w-[100%] mt-[2px] '>
       
      
      <div className='w-[100%] h-[10vh]  flex justify-center items-center'>
-        <h1 className='text-3xl drop-shadow-lg font-light text-[#E52F06] '>All Products</h1>
+        <h1 className='text-3xl drop-shadow-lg font-light text-[#E52F06] '>Grocery</h1>
         </div>
         {/* Products Section  */}
     

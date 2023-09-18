@@ -3,9 +3,6 @@ import {Link, json, redirectDocument, useNavigate} from 'react-router-dom';
 export default function SignUp() {
 
   
-  const [name,setName] = useState(()=>{
-    JSON.parse(localStorage.getItem("userName"));
-  });
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   
@@ -43,7 +40,7 @@ export default function SignUp() {
    let TokenX = Math.floor(Math.random()*100) 
 
    localStorage.setItem("Token",JSON.stringify(TokenX));
-        
+
 _navigate("/")
 
       return

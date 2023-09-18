@@ -73,9 +73,20 @@ _navigate("/Login");
     
     </li>
   <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>About</li>
-  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Grocery</li>
-  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Cloths</li>
-  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Electronics</li>
+
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>
+    <Link to={'/Grocery'}>
+    Grocery
+    </Link>
+    </li>
+
+
+  <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>
+    <Link to={'/Electronics'}>
+    Electronics
+    </Link>
+    </li>
+
   <li className='cursor-pointer font-medium text-[1.4vw] hover:text-[#E52F06]'>Contact Us</li>
   
   </ul>)}
