@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Grocery from './pages/Grocery';
 import Electronics from './pages/Electronics';
 import Error from './pages/Error';
+import ProtectExternelRoutes from './utils/ProtectExternelRoutes';
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
 
   <Route path='/' element={<RouteProtection><Home/></RouteProtection>}/>
   <Route path='/Cart' element={<RouteProtection><Cart/></RouteProtection>}/>
-<Route path='/SignUp' element={<SignUp/>}/>
-<Route path='/Login' element={<Login/>}/>
+<Route path='/SignUp' element={<ProtectExternelRoutes><SignUp/></ProtectExternelRoutes>}/>
+<Route path='/Login' element={<ProtectExternelRoutes><Login/></ProtectExternelRoutes>}/>
 <Route path='/Grocery' element={<RouteProtection><Grocery/></RouteProtection>}/>
 <Route path='/Electronics' element={<RouteProtection><Electronics/></RouteProtection>}/>
 <Route path='*' element={<Error/>}/>
