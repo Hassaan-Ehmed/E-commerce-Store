@@ -17,7 +17,7 @@ function App() {
     <>
 
 <Router>
- <ContextProvider>
+ <ContextProvider> 
  
 <Routes>
 
