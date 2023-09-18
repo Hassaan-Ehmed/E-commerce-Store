@@ -13,21 +13,30 @@ const store = useProduct();
 
 const [search,setSearch] = useState(false)
 
+
+// Temporay store user text's value on change Event  untill user not press Any Key  
   const[inputText,setInputText] = useState("");
 
 
+  // function for Search Functionality this function invoke when user press Key 
+  // and store user's text to store if Enter Key Press
 
 const _actionForText=(e)=>{
 
 if(e.keyCode=="13")
   store.setSearchText(inputText)
 
-
 }
+
 
 
 const _navigate = useNavigate()
 
+
+// Home Page Wrapp in Route Protecting and want Token 
+/* Logout Button Click this function will invoke and  remove token from Local Storage
+and then redirect it to Login Page
+*/
 const _logout=()=>{
 
 localStorage.removeItem("Token");
@@ -51,7 +60,7 @@ _navigate("/Login");
 
 <img src={logo} alt="" className='h-[5.5vw]'/>
 
-<h1 className='font-medium text-[2vw]' >Super Store</h1>
+<h1 className='font-medium text-[2vw] cursor-pointer'><Link to={'/'}>Super Store</Link></h1>
 
 </div>
 
@@ -97,7 +106,19 @@ _navigate("/Login");
 {/* For Last Icons */}
 <div className='w-[20%] h-[100%] flex  justify-center items-center gap-5'>
 
-<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2vw] hover:text-[#E52F06] cursor-pointer' onClick={()=>{setSearch(!search);store.setSearchText("")}}/>
+<FontAwesomeIcon icon={faMagnifyingGlass}  className='text-[2vw] hover:text-[#E52F06] 
+
+cursor-pointer' onClick={()=>{setSearch(!search);store.setSearchText("")}}/>
+
+
+{/* 
+
+when search btn press function will invoke  if nav links is on so ...
+this function hide navlinks and show Search bar and same as search (Search = Nav Link )
+
+*/}
+
+
 
 <Link to={'/Cart'}>
 

@@ -10,7 +10,7 @@ function Error() {
 
 
 
-<img src={Error_img} alt=""  className='h-[90vh] w-[50%]'/>
+<img src={Error_img} alt=""  className='h-[95vh] w-[50%]'/>
 
    </div>
    

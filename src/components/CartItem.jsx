@@ -7,32 +7,12 @@ export default function CartItem(props) {
 
 const store = useProduct();
 
-console.log(props.quantity)
+// in Reduce we have callback a,b is current Element we initialiaze a for 0 
+// and b still is a current element we extract price with b(current element) and plus with a(0) and assign it to A  it's Look like ( [sum += i] Link * ) and total price of cart items is assign
+// to total variable and after this we set to total variable  in store and use it in cart page 
 
 
-const _add=()=>{
-    
-
-    store.setQuantity(store.quantity+1);
-
-store.productItems.map((item)=>{
-
-    if(item.productName == props.name){
-
-        store.setProductItems({...item , quantity:item.quantity * 2 } );
-return  
-        
-    }
-
-
-   })
-   
-
-
-}
-
-
-let total  = store.productItems.reduce((a,b)=> a + b.productPrice * store.quantity ,0);
+let total  = store.productItems.reduce((a,b)=> a + b.productPrice  ,0);
 
 store.setTotal(total);
 
@@ -67,7 +47,6 @@ return (
 
 <button className='bg-slate-200  px-[15px] font-extrabold text-lg rounded-3xl  shadow-[0px_9px_8px_-6px_black] active:shadow-none active:delay-75'
 
-onClick={()=>{_add(props.productName)}}
 >+</button>
 </div>
 
@@ -77,6 +56,11 @@ onClick={()=>{_add(props.productName)}}
 <span><FontAwesomeIcon icon={faTrash} className='text-[22px] cursor-pointer text-red-600' 
 
 onClick={()=>{
+
+// This Logic for Deleting Specific Item from our cart Item
+
+// If Delete icon clicked so they itrate array of cart items and check if ..
+// current Item (you want to Delete) name's match with our every cart item it will remove and other element still assign to new array (result)     
 
 
 let result  = store.productItems.filter((element)=>{
@@ -91,7 +75,7 @@ let result  = store.productItems.filter((element)=>{
 
 })
 
-
+// Now After Removing of current item new array will generate and it will paste in product items 
 
 store.setProductItems([...result]);
 

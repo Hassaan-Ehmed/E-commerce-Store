@@ -61,6 +61,7 @@ store.setTotal(0);
 
 <div className='totalBox h-8 w-[86%] bg-[white] text-center' >
 
+{/* Logic Written in CartItem Page */}
   <h1 className='text-xl font-semibold'>Total Amount: ${store.total}.0</h1>
 </div>
 )}

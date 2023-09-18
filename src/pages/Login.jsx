@@ -27,14 +27,18 @@ export default function SignUp() {
     e.preventDefault()
 
 
-   
     if((!email=="") && (!password=="")){ 
 
     for(let i=0; i<Users.length; i++){
 
+      // check if User's Email Match with any Exsisting emails or not if match 
+      // so check if email match so check in this current index password key match or not
+      // Like: if email match on 5th index so password also match with 5th index
       
       if((Users[i].userEmail == email) && (Users[i].userPassword == password) ){
     
+
+        // Now we agian Set token to access Home page or other pages because of route-protecting 
 
    // Generate Random Number for Token 
    let TokenX = Math.floor(Math.random()*100) 
@@ -43,11 +47,14 @@ export default function SignUp() {
 
 _navigate("/")
 
+// Redirect to Home
+
       return
 
       }
       else {
 
+        // if Email or Password both are incorrect  so it will alert   
             alert("Incorrect Credential");
           return
       }

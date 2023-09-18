@@ -37,9 +37,12 @@ export default function Product({productImg,productName,productPrice,quantity}) 
 
 onClick={()=>{
 
+// Prevent Duplication of Product </>
+
+    // This Logic tell him that if current item match with exsisting items or not if not so it will allow to add product Otherwise not !
 
 
-    // Some Method   run on each element until the any element return true(match) or array length is completed 
+    // Some Method  run on each element until the any element return true(match) or array length is completed 
 let exist_or_Not = store.productItems.some(item => item.productName == productName );
 
 

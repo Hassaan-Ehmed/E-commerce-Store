@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import {Link, json, redirectDocument, useNavigate} from 'react-router-dom';
 export default function SignUp() {
 
-  
-  const [name,setName] = useState(()=>{
-    JSON.parse(localStorage.getItem("userName"));
-  });
+
+
+  const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   
@@ -13,9 +12,12 @@ export default function SignUp() {
   let bool; 
   
 
-  // Users array only contain emails and passwords of users
+// First Get Users Array from Local Storage 
+
   let item = localStorage.getItem("Users");
   
+
+  // If Available so convert it to normal 
   if(item){
     Users = JSON.parse(item);
     
@@ -23,12 +25,22 @@ export default function SignUp() {
   
   const _navigate = useNavigate();
 
+
+
+
+  // Function will invoke when user want to Sign up
   const addUser=(e)=>{
     
     e.preventDefault()
 
-   
+  //  to Enter This Condition you must be filled all fields
+
     if((!name=="") && (!email=="") && (!password=="")){ 
+
+
+// localStorage se Users array pe run Loop and check every index's email if email alreday exsist
+// so redirect it to Login Page and return 
+
 
     for(let i=0; i<Users.length; i++){
 
@@ -41,7 +53,8 @@ export default function SignUp() {
 
       }
       else {
-        
+// If Email is new so check password 
+// (if password is matched with exsisting password so it will alert ) 
               if( Users[i].userPassword == password){
 
                     alert("Choose Different Password");
@@ -51,20 +64,35 @@ export default function SignUp() {
                   }
           }
         }
+        
+// Otherwise : The Email & Password is new so now it will proceed
+
+// Note : This Array comes from localStorage and we normalize them 
+
+
+// Create Object With User values and push to array The LocalStorage's User array will updated
 
         let userInfo = {userName:name, userEmail : email, userPassword : password, }
 
         Users.push(userInfo)
     
-    
+// and then we set to in Local Storage    
           localStorage.setItem("Users",JSON.stringify(Users));
 
+
+
+
+// when user's account create succcessfully we also assign him random number becuase of Route=Protecting
+// Home Componet want's Token it will helpful for Acccess
           // Generate Random Number for Token 
           let TokenX = Math.floor(Math.random()*100) 
 
           localStorage.setItem("Token",JSON.stringify(TokenX));
     
        _navigate("/");
+
+// And after successfully set Token we Redirect  to Home
+
 
   }
 

@@ -12,22 +12,7 @@ export const useProduct = () => {const store = useContext(ContextStore);
     
     let [total,setTotal] = useState(0);
 
-    const [state,dispatch] = useReducer(reducer,0);
-
-    function reducer(state,action){
     
-      switch(action.type){
-    
-        case "Add":
-        return state += action.amount ;
-        break;
-    
-        case "Sub":
-        return state-=action.amount
-    
-    
-      }
-    }
     
 // time of initialization function will invoke and 
 // retrieve items from local convert it and assign it to productItems(state varible);
@@ -44,7 +29,10 @@ localStorage.setItem("itemsForCart",JSON.stringify(productItems));
 
     },[productItems])
 
-     
+
+
+    // This function return empty when localStorage is Empty (This time would be First Time When )
+ 
   function getLocalStorage(){
 
     let data = JSON.parse(localStorage.getItem("itemsForCart"));
@@ -70,7 +58,19 @@ const [quantity,setQuantity] = useState(1);
 return (
 <ContextStore.Provider
 
-value={{productItems,setProductItems,dispatch,state,total,setTotal,setSearchText,searchText,setQuantity,quantity}}
+
+// Sending... Values for Children (APP) to access Easily
+
+// (setSearchText ,searchText) For Search Functionality
+
+// (productItems, setProductItems) For Add to Product on Cart 
+
+// (setTotal, total) For Total Amount Functionaliy (Total Price Calculate of Cart Items)
+
+
+
+
+value={{productItems,setProductItems,total,setTotal,setSearchText,searchText,setQuantity,quantity}}
 
 >{props.children}</ContextStore.Provider>
 )
